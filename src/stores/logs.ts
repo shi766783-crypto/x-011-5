@@ -32,5 +32,11 @@ export const useLogsStore = defineStore('logs', () => {
     persist()
   }
 
-  return { logs, addLog, updateLog, removeLog }
+  /** 导入恢复时整体替换（由备份流程统一调用） */
+  function replaceAll(next: StudyLog[]): void {
+    logs.value = next
+    persist()
+  }
+
+  return { logs, addLog, updateLog, removeLog, replaceAll }
 })

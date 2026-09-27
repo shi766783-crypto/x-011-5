@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import StatCard from '@/components/StatCard.vue'
+import BackupPanel from '@/components/BackupPanel.vue'
 import { computePlanProgress } from '@/utils/progress'
 import { useAchievementsStore } from '@/stores/achievements'
 import { useLogsStore } from '@/stores/logs'
@@ -42,6 +43,8 @@ const unlockedBadges = computed(() => achievementsStore.achievements.filter((a) 
       <StatCard label="成就积分" :value="achievementsStore.totalPoints" icon="🏅" color="#e6a23c" />
       <StatCard label="已解锁徽章" :value="`${achievementsStore.unlockedCount}/12`" icon="🎖️" color="#8e44ad" />
     </div>
+
+    <BackupPanel />
 
     <div class="profile-grid">
       <el-card shadow="never">

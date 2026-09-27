@@ -39,5 +39,11 @@ export const usePlansStore = defineStore('plans', () => {
     persist()
   }
 
-  return { plans, addPlan, updatePlan, removePlan, toggleComplete }
+  /** 导入恢复时整体替换（由备份流程统一调用） */
+  function replaceAll(next: StudyPlan[]): void {
+    plans.value = next
+    persist()
+  }
+
+  return { plans, addPlan, updatePlan, removePlan, toggleComplete, replaceAll }
 })
