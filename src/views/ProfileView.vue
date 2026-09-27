@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import BackupPanel from '@/components/BackupPanel.vue'
 import StatCard from '@/components/StatCard.vue'
 import { computePlanProgress } from '@/utils/progress'
 import { useAchievementsStore } from '@/stores/achievements'
@@ -94,6 +95,8 @@ const unlockedBadges = computed(() => achievementsStore.achievements.filter((a) 
           </div>
         </div>
       </el-card>
+
+      <BackupPanel />
     </div>
   </div>
 </template>

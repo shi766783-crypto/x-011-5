@@ -62,5 +62,11 @@ export const useAchievementsStore = defineStore('achievements', () => {
     if (changed) write(STORAGE_KEYS.unlocked, unlocked.value)
   }
 
-  return { unlocked, achievements, unlockedCount, totalPoints, checkAll }
+  /** 整体替换解锁记录（仅用于备份导入，调用方需先完成校验与合并） */
+  function replaceAll(map: UnlockedMap): void {
+    unlocked.value = map
+    write(STORAGE_KEYS.unlocked, unlocked.value)
+  }
+
+  return { unlocked, achievements, unlockedCount, totalPoints, checkAll, replaceAll }
 })

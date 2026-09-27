@@ -49,5 +49,11 @@ export const useCardsStore = defineStore('cards', () => {
     }
   }
 
-  return { cards, addCard, updateCard, removeCard, markReviewed }
+  /** 整体替换数据（仅用于备份导入，调用方需先完成校验与合并） */
+  function replaceAll(items: KnowledgeCard[]): void {
+    cards.value = items
+    persist()
+  }
+
+  return { cards, addCard, updateCard, removeCard, markReviewed, replaceAll }
 })
